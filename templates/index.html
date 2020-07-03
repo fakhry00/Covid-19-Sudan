@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar" >
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+}
+.register-left{
+    text-align: center;
+    color: #fff;
+    margin-top: 4%;
+}
+.register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+.register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+}
+.register .register-form{
+    padding: 10%;
+    margin-top: 10%;
+}
+.btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+}
+.register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+    border: none;
+}
+.register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+}
+    </style>
+    <script src="jquery.min.js"></script>
+
+    <title>Covid-19 Sudan Website</title>
+</head>
+<body>
+
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Check Yourslef</h3>
+                        <h3>يمكنك فحص نفسك من هنا </h3>
+                        
+                        <input type="submit" name="" value="help"/><br/>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">الخرطوم </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Other</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" dir="rtl">
+                                <h3 class="register-heading">Coivd-19 Checher</h3><br><br>
+                                <h3 class="register-heading" style="color: red;">{{ prediction_text }}</h3>
+                                <div class=" register-form">
+                                    <form action="{{ url_for('predict')}}"method="post">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="Age" placeholder="Age" value="" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="location" placeholder="location" value="" required="required"/>
+                                        </div>
+                                        <div class="form-group" >
+                                            <div class="maxl"> هل تعاني من الضغط 
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Bloodpressure" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Bloodpressure" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" >
+                                            <div class="maxl"> هل تعاني من القلب 
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Heart" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Heart" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" >
+                                            <div class="maxl"> هل تعاني من السكر 
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Diabetes" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Diabetes" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" >
+                                            <div class="maxl"> هل تعاني من امراض الصدر 
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="ChestDisease" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="ChestDisease" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl"> هل قمت بمخالطة شخص تم تأكيد اصابته بكرونا
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="In_contanct_with_confirmed_COVID" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="In_contanct_with_confirmed_COVID" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="In_contanct_with_confirmed_COVID" value="2">
+                                                    <span>ربما </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" >ما هي الاعراض التي تعاني منها 
+                                            <br>
+                                            <div class="maxl"> كحه جافة
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="DryCough" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="DryCough" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                            <div class="maxl"> حمى
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Fever" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Fever" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                            <div class="maxl"> فقدان حاسة الشم
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Anosmia" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Anosmia" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                            <div class="maxl"> الاعياء 
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Fatigue" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Fatigue" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                            <div class="maxl">  صعوبة التنفس
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="ShortOfBreath" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="ShortOfBreath" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                            <div class="maxl">  الصداع
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Headache" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Headache" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                            <div class="maxl">  الم في الصدر
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="ChestPain" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="ChestPain" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                            <div class="maxl">  اعراض الجهاز الهضمي
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="GastrointestinalDisorders" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="GastrointestinalDisorders" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="Symptoms_period" placeholder="الفترة الزمنية للمرض" value="" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl"> هل ظهرت اعراض المرض على اشخاص مخالطين لك؟
+                                                <br>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Your_conatced_had_symptoms" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Your_conatced_had_symptoms" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Your_conatced_had_symptoms" value="2">
+                                                    <span>ربما </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                                                        
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Commitment_measures" value="1" checked>
+                                                    <span> 1 </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Commitment_measures" value="2">
+                                                    <span>2 </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Commitment_measures" value="3" >
+                                                    <span> 3</span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Commitment_measures" value="4">
+                                                    <span>4</span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Commitment_measures" value="5">
+                                                    <span>5</span>
+                                                </label>
+                                            </div>
+                                        </div><div class="form-group">
+                                            <div class="maxl"> هل لديك وفيات الاقارب من الدرجة الاولى
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Close_family_deaths" value="0" checked>
+                                                    <span> لا </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="Close_family_deaths" value="1">
+                                                    <span>نعم </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                   
+                                        <input type="submit" class="btnRegister "  value="فحص"/>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</body>
+</html>
