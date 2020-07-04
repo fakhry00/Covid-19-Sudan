@@ -127,16 +127,70 @@
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" dir="rtl">
-                                <h3 class="register-heading">Coivd-19 Checher</h3><br><br>
+                                <h3 class="register-heading">Coivd-19 Checker</h3><br><br>
                                 <h3 class="register-heading" style="color: red;">{{ prediction_text }}</h3>
                                 <div class=" register-form">
                                     <form action="{{ url_for('predict')}}"method="post">
                                     <div class="col-md-12 ">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="Age" placeholder="Age" value="" required="required"/>
+                                        
+                                        <div class="form-group"><br>اختار الفترة العمرية
+                                            <br>
+                                            <select class="form-control" name="Age">
+                                                
+                                                <option value="0">اصغر من 18</option>
+                                                <option value="1" selected>18 -25</option>
+                                                <option value="2">26 -33</option>
+                                                <option value="3">34 -41</option>
+                                                <option value="4">42 -49</option>
+                                                <option value="5">50 -59</option>
+                                                <option value="6">60 -96</option>
+                                                <option value="7">اكبر من 70</option>
+                                            </select>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" name="location" placeholder="location" value="" required="required"/>
+                                        
+                                        <div class="form-group"><br>السكن
+                                            <br>
+                                            <select class="form-control" name="location">
+                                                
+                                                <option value="16">الثورة</option>
+<option value="0">other</option>
+<option value="124">شمبات</option>
+<option value="71">الكلاكلة</option>
+<option value="101">جبرة</option>
+<option value="4">اركوبت</option>
+<option value="128">كافوري</option>
+<option value="6">الازهرى</option>
+<option value="22">الحاج يوسف</option>
+<option value="79">المعمورة</option>
+<option value="48">الصافية</option>
+<option value="12">البراري</option>
+<option value="39">الرياض</option>
+<option value="25">الصحافة</option>
+<option value="51">الحلفاية</option>
+<option value="94">امبدة</option>
+<option value="1">ابو ادم </option>
+<option value="28">الخرطوم</option>
+<option value="19">الجريف غرب</option>
+<option value="90">الواحة</option>
+<option value="85">المهندسين</option>
+<option value="53">الطايف</option>
+<option value="64">الفيحاء</option>
+<option value="30">الدروشاب</option>
+<option value="95">امدرمان</option>
+<option value="2">ابو سعد</option>
+<option value="34">الديم</option>
+<option value="83">المنشية</option>
+<option value="122">سوبا</option>
+<option value="108">حى الهدى</option>
+<option value="62">الفتيحاب</option>
+<option value="119">العمارات</option>
+<option value="60">حي النصر</option>
+<option value="98">بحري</option>
+<option value="49">الصالحة</option>
+<option value="40">السامراب</option>
+
+                                            
+                                            </select>
                                         </div>
                                         <div class="form-group" >
                                             <div class="maxl"> هل تعاني من الضغط 
@@ -298,8 +352,17 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        
                                         <div class="form-group">
-                                            <input type="text" class="form-control" name="Symptoms_period" placeholder="الفترة الزمنية للمرض" value="" required="required"/>
+                                            الفترة الزمنية للمرض                                           <select class="form-control" name="Symptoms_period">
+                                               
+                                                <option value="0" selected>1-3 يوم</option>
+                                                <option value="1">4-6 يوم</option>
+                                                <option value="2">7-9 يوم</option>
+                                                <option value="3">10-12 يوم</option>
+                                                <option value="4">13-15 يوم</option>
+                                                <option value="5">اكبر من 15 يوم</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <div class="maxl"> هل ظهرت اعراض المرض على اشخاص مخالطين لك؟
@@ -320,7 +383,8 @@
                                         </div>
                                                                         
                                         <div class="form-group">
-                                            <div class="maxl">
+                                            <div class="maxl">مدى التزامك بموجهات وزارة الصحة
+                                                <br>
                                                 <label class="radio inline">
                                                     <input type="radio" name="Commitment_measures" value="1" checked>
                                                     <span> 1 </span>
